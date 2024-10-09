@@ -1,3 +1,4 @@
+/* Reset Básico */
 * {
     margin: 0;
     padding: 0;
@@ -12,147 +13,142 @@ body {
 }
 
 .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Seção hero */
+/* Seção Hero */
 .hero {
     position: relative;
-    background: url('img/background.png') no-repeat center center/cover;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-    border: none;
+    background: url('img/fundo1.jpg') no-repeat center center/cover;
+    padding: 2rem;
 }
 
-.hero-header {
-    font-size: medium;
-    position: absolute;
-    top: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3rem;
-    z-index: 100;
-}
-
-.hero-header .logo {
-    font-size: 2rem;
+.logo {
+    font-size: 2.5rem;
     color: #fcb72b;
-    font-weight: 600;
+    font-weight: 700;
 }
-
-.hero-header .navbar {
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Película preta com opacidade */
+    z-index: 0;
+    border-radius: 0; /* Remova ou ajuste conforme o design desejado */
+}   
+/* Ajuste para Navbar no Topo */
+.hero-header {
+    position: fixed; /* Posiciona no topo */
+    top: 0;
+    width: 160vh;
+    padding: 1rem -rem; /* Ajuste para padding */
+    z-index: 1000; /* Coloca acima do hero */
+}
+.navbar {
     display: flex;
-    gap: 2rem;
+  
 }
 
-.hero-header .navbar a {
+.navbar a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-.hero-header .navbar a:hover {
+.navbar a:hover {
     color: #fcb72b;
 }
 
-.hero-container {
+.navbar-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    gap: 2rem;
 }
-
 .hero-text {
-    width: 80%;
-    padding-right: 2rem;
-    margin-left: 3rem;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    border-radius: 8px;
+    position: relative;
+    max-width: 950px; /* Limite de largura */
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro para destaque */
+    padding: 2rem;
+    border-radius: 10px;
+    color: #fff;
+    text-align: left; /* Alinha à esquerda */
+    z-index: 1;
+}
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.nav-link:hover {
+    color: #fcb72b;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
+.nav {
+    display: flex;
+    gap: 1.5rem; /* Espaçamento entre links */
+}
 .hero h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     color: #fff;
-    max-width: 100%;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1rem;
     margin-bottom: 2rem;
     color: #fff;
 }
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-header {
+        flex-direction: column; /* Mudar para coluna em telas pequenas */
+        padding: 1rem;
+    }
 
+    .navbar-nav {
+        flex-direction: column; /* Menu em coluna para mobile */
+        gap: 1rem;
+    }
+
+    .hero-text {
+        width: 90%; /* Ajustar largura do texto */
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .navbar {
+        padding: 0; /* Remover padding extra no menu */
+    }
+}
 .cta-button {
     background: #fcb72b;
     color: #333;
-    padding: 1rem 2rem;
-    text-decoration: none;
+    padding: 1rem 1rem;
     border-radius: 5px;
-    font-size: 1.2rem;
     font-weight: 600;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .cta-button:hover {
     background: #d89d26;
 }
 
-
-
-.hero-contact-form input,
-.hero-contact-form textarea,
-.hero-contact-form button {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.hero-contact-form button {
-    background: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.hero-contact-form button:hover {
-    background: #555;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .hero-text, .hero-form {
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/*Seção Sobre Nos*/
+/* Seção Sobre Nós */
 .sobre-nos-cards {
     display: flex;
     justify-content: space-between;
@@ -170,35 +166,21 @@ body {
     text-align: center;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
+    height: 250px;
 }
 
 .sobre-nos-card:hover {
     transform: scale(1.05);
 }
 
-.sobre-nos-card h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
+.sobre-nos-card h3,
 .sobre-nos-card p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.sobre-nos-card.experiencia, 
-.sobre-nos-card.compromisso, 
-.sobre-nos-card.qualidade {
-    height: 250px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .sobre-nos-card::before {
@@ -213,43 +195,27 @@ body {
     z-index: 0;
 }
 
-.sobre-nos-card h3, .sobre-nos-card p, .sobre-nos-card .container {
+.sobre-nos-card h3,
+.sobre-nos-card p {
     position: relative;
     z-index: 1;
 }
 
-.sobre-nos-card.experiencia {
-    background-image: url('img/construction-tools.jpg');
-}
-
-.sobre-nos-card.compromisso {
-    background-image: url('img/building-site.jpg');
-}
-
-.sobre-nos-card.qualidade {
-    background-image: url('img/blueprints.jpg');
-}
-
-/*Seção Nossos Serviços*/
+/* Seção Nossos Serviços */
 .nossos-servicos {
-    padding: 4rem 2rem;
-    background-color: #f8f8f8;
     text-align: center;
+    padding: 4rem 2rem;
 }
 
 .nossos-servicos h2 {
     font-size: 2.5rem;
-    color: #333;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .nossos-servicos p {
     font-size: 1.2rem;
-    color: #666;
     margin-bottom: 3rem;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .service-cards {
@@ -257,7 +223,6 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    padding: 4rem 2rem;
 }
 
 .service-card {
@@ -269,26 +234,21 @@ body {
     text-align: center;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #333;
+    height: 250px;
 }
 
-.service-card-residential {
-    background-image: url('img/residential.jpg');
+.service-card:hover {
+    transform: scale(1.05);
 }
 
-.service-card-renovation {
-    background-image: url('img/renovation.jpg');
-}
-
-.service-card-commercial {
-    background-image: url('img/commercial.jpg');
+.service-card h3,
+.service-card p {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .service-card::before {
@@ -298,37 +258,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: none;
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 0;
 }
 
-.service-card h3, .service-card p, .service-card .container {
-    position: relative;
-    z-index: 1;
+.service-card:hover::before {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-@media (max-width: 768px) {
-    .service-cards {
-        flex-direction: column;
-    }
-
-    .service-card {
-        width: 100%;
-    }
-}
-
-/*Seção Projetos*/
-
+/* Seção Projetos */
 .projetos {
     padding: 4rem 2rem;
-    background-color: #f8f8f8;
     text-align: center;
 }
 
 .projetos h2 {
     font-size: 2.5rem;
-    color: #333;
     margin-bottom: 2rem;
     font-weight: 700;
 }
@@ -366,15 +312,12 @@ body {
 
 .project-item p {
     font-size: 1.1rem;
-    color: #666;
     line-height: 1.6;
 }
 
-/*Seção Contato*/
-
+/* Seção Contato */
 .contato {
     padding: 4rem 2rem;
-    background-color: #f8f8f8;
     text-align: center;
 }
 
@@ -386,7 +329,8 @@ body {
     margin: 0 auto;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -408,8 +352,7 @@ body {
     background: #555;
 }
 
-/*footer*/
-
+/* Footer */
 .footer {
     background: #333;
     color: #fff;
@@ -417,46 +360,49 @@ body {
     text-align: center;
 }
 
-.footer .social-media {
-    margin-top: 1rem;
-}
-
-.footer .social-media a {
+.social-media a {
     color: #fcb72b;
     margin: 0 0.5rem;
     text-decoration: none;
 }
 
-.footer .social-media a:hover {
+.social-media a:hover {
     color: #f5a623;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
-    .header, .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    .hero {
+        padding: 2rem;
+        text-align: center;
+        min-height: auto;
     }
 
+    .hero-header,
     .navbar {
-        margin-top: 1rem;
-    }
-
-    .sobre-nos-cards, .project-gallery {
         flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 
-    .sobre-nos-card, .project-item, .service-card {
+    .hero-text, .service-card, .sobre-nos-card, .project-item {
         width: 100%;
     }
 
-    .hero {
-        height: 250px;
+    .service-cards, .sobre-nos-cards, .project-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-text {
+        width: 90%;
     }
 
     .hero h2 {
         font-size: 2rem;
     }
 
+    .hero p,
     .cta-button {
         font-size: 1rem;
     }
