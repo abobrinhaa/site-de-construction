@@ -21,7 +21,7 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
-    background: url('img/fundo1.jpg') no-repeat center center/cover;
+    background: url('img/fundo3.jpg') no-repeat center center/cover;
     padding: 2rem;
 }
 
@@ -267,53 +267,120 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Seção Projetos */
-.projetos {
-    padding: 4rem 2rem;
-    text-align: center;
+/* Estilo da Seção Nossos Serviços */
+#nossos-servicos {
+    background: #f8f8f8;
+    padding: 4rem 0;
 }
 
-.projetos h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+#nossos-servicos h2 {
+    font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
 }
 
-.project-gallery {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+#nossos-servicos p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: #666;
 }
 
-.project-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 1.5rem;
-    width: 30%;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+/* Estilo dos Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+    border-radius: 15px; /* Bordas arredondadas */
 }
 
-.project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+/* Hover para os Cards */
+.card:hover {
+    transform: translateY(-10px); /* Leve deslocamento para cima no hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Sombra ao hover */
 }
 
-.project-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
+/* Ícones */
+.card-body i {
+    color: #fcb72b; /* Cor de destaque dos ícones */
     margin-bottom: 1rem;
 }
 
-.project-item p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+/* Título dos Cards */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
 }
+
+/* Texto dos Cards */
+.card-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Botão na Seção Nossos Serviços */
+.btn {
+    background: #fcb72b;
+    color: #333;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover no Botão */
+.btn:hover {
+    background: #d89d26;
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+
+.projetos {
+    background: linear-gradient(135deg, #f8f8f8 0%, #e0e0e0 100%); /* Fundo com leve gradiente */
+    padding: 4rem 0;
+}
+
+.projetos h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação no hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.img-fluid {
+    border-radius: 15px 15px 0 0; /* Bordas arredondadas nas imagens */
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    .projetos h2 {
+        font-size: 2.5rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
 
 /* Seção Contato */
 .contato {
@@ -406,4 +473,68 @@ body {
     .cta-button {
         font-size: 1rem;
     }
+}
+
+
+/* Estilo das Seções */
+section {
+    padding: 60px 0;
+}
+
+.nossos-servicos {
+    background-color: #e8e8e8;
+}
+
+.projetos {
+    background-color: #f4f4f4;
+}
+
+.sobre-nos {
+    background-color: #fafafa;
+}
+
+.contato {
+    background-color: #e0e0e0;
+}
+
+
+/* Títulos e Textos */
+h2 {
+    font-weight: 700;
+    color: #333;
+}
+
+p, .card-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Estilo dos Cards */
+.card {
+    border: none;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Botões */
+.btn {
+    background: #333;
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background: #fcb72b;
+    color: #333;
+    transform: scale(1.05);
 }
