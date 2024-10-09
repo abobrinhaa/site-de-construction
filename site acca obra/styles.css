@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Seção hero */
+.hero {
+    position: relative;
+    background: url('img/background.png') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    border: none;
+}
+
+.hero-header {
+    font-size: medium;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    z-index: 100;
+}
+
+.hero-header .logo {
+    font-size: 2rem;
+    color: #fcb72b;
+    font-weight: 600;
+}
+
+.hero-header .navbar {
+    display: flex;
+    gap: 2rem;
+}
+
+.hero-header .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.hero-header .navbar a:hover {
+    color: #fcb72b;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text {
+    width: 80%;
+    padding-right: 2rem;
+    margin-left: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    max-width: 100%;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.cta-button {
+    background: #fcb72b;
+    color: #333;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #d89d26;
+}
+
+
+
+.hero-contact-form input,
+.hero-contact-form textarea,
+.hero-contact-form button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-contact-form button {
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.hero-contact-form button:hover {
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-text, .hero-form {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/*Seção Sobre Nos*/
+.sobre-nos-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.sobre-nos-card {
+    position: relative;
+    width: 30%;
+    border-radius: 10px;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sobre-nos-card:hover {
+    transform: scale(1.05);
+}
+
+.sobre-nos-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-nos-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-nos-card.experiencia, 
+.sobre-nos-card.compromisso, 
+.sobre-nos-card.qualidade {
+    height: 250px;
+}
+
+.sobre-nos-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.sobre-nos-card h3, .sobre-nos-card p, .sobre-nos-card .container {
+    position: relative;
+    z-index: 1;
+}
+
+.sobre-nos-card.experiencia {
+    background-image: url('img/construction-tools.jpg');
+}
+
+.sobre-nos-card.compromisso {
+    background-image: url('img/building-site.jpg');
+}
+
+.sobre-nos-card.qualidade {
+    background-image: url('img/blueprints.jpg');
+}
+
+/*Seção Nossos Serviços*/
+.nossos-servicos {
+    padding: 4rem 2rem;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.nossos-servicos h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.nossos-servicos p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.service-card {
+    position: relative;
+    width: 30%;
+    border-radius: 10px;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.service-card-residential {
+    background-image: url('img/residential.jpg');
+}
+
+.service-card-renovation {
+    background-image: url('img/renovation.jpg');
+}
+
+.service-card-commercial {
+    background-image: url('img/commercial.jpg');
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.service-card h3, .service-card p, .service-card .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+}
+
+/*Seção Projetos*/
+
+.projetos {
+    padding: 4rem 2rem;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.projetos h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.project-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.project-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 30%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.project-item p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/*Seção Contato*/
+
+.contato {
+    padding: 4rem 2rem;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 0.75rem;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #555;
+}
+
+/*footer*/
+
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.footer .social-media {
+    margin-top: 1rem;
+}
+
+.footer .social-media a {
+    color: #fcb72b;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.footer .social-media a:hover {
+    color: #f5a623;
+}
+
+@media (max-width: 768px) {
+    .header, .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        margin-top: 1rem;
+    }
+
+    .sobre-nos-cards, .project-gallery {
+        flex-direction: column;
+    }
+
+    .sobre-nos-card, .project-item, .service-card {
+        width: 100%;
+    }
+
+    .hero {
+        height: 250px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+    }
+}
