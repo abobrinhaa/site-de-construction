@@ -621,3 +621,12 @@ p, .card-text {
     background-color: #494949;
 }
 
+.success-message {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+}

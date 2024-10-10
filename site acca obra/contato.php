@@ -1,52 +1,26 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Carrega o autoloader do PHPMailer
-require 'vendor/autoload.php';
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $destinatario = "accaconstrução@gmail.com"; // E-mail que receberá as mensagens
-    $assunto = "Mensagem do site"; // Assunto padrão para os e-mails
-    $mensagem = isset($_POST["mensagem"]) ? $_POST["mensagem"] : "";
-    $email = isset($_POST["email"]) ? $_POST["email"] : "";
     $nome = isset($_POST["nome"]) ? $_POST["nome"] : "";
+    $email = isset($_POST["email"]) ? $_POST["email"] : "";
+    $mensagem = isset($_POST["mensagem"]) ? $_POST["mensagem"] : "";
 
-    $mail = new PHPMailer(true);
+    // Configurações do e-mail
+    $destinatario = "accaconstrução@gmail.com"; // E-mail que receberá a mensagem
+    $assunto = "Mensagem de Contato do Site";
+    $corpoEmail = "Nome: $nome\nEmail: $email\n\nMensagem:\n$mensagem";
+    $headers = "From: $email\r\n" .
+               "Reply-To: $email\r\n" .
+               "X-Mailer: PHP/" . phpversion();
 
-    try {
-        // Configurações do servidor SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Servidor SMTP do Gmail
-        $mail->SMTPAuth = true;
-        $mail->Username = 'acca.construcao@gmail.com'; // Seu e-mail do Gmail
-        $mail->Password = 'acca130487'; // Senha do seu e-mail
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-        // Remetente e Destinatário
-        $mail->setFrom($email, $nome);
-        $mail->addAddress($destinatario);
-
-        // Conteúdo do E-mail
-        $mail->isHTML(true);
-        $mail->Subject = $assunto;
-        $mail->Body = "<h3>Mensagem de: $nome</h3><p>$mensagem</p><p><strong>Contato:</strong> $email</p>";
-
-        // Enviar e-mail
-        $mail->send();
-        $mensagemEnviada = true;
-    } catch (Exception $e) {
-        $mensagemEnviada = false;
-        echo "Erro ao enviar o e-mail: {$mail->ErrorInfo}";
-    }
-}
-
-if (isset($mensagemEnviada)) {
-    if ($mensagemEnviada) {
-        echo "<p id='success-message' class='success-message'>E-mail enviado com sucesso.</p>";
+    // Envio do e-mail
+    if (mail($destinatario, $assunto, $corpoEmail, $headers)) {
+        // Se o e-mail for enviado, redirecione de volta para o index.html com mensagem de sucesso
+        header("Location: index.html?status=sucesso");
+        exit();
     } else {
-        echo "<p id='error-message'>Ocorreu um erro ao enviar o e-mail.</p>";
+        // Caso contrário, redirecione com mensagem de erro
+        header("Location: index.html?status=erro");
+        exit();
     }
 }
 ?>
