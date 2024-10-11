@@ -70,38 +70,49 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Sincronização dos carrosseis
-    const carousels = document.querySelectorAll('.projeto-carousel');
-    if (carousels.length > 0) {
-        let currentIndex = 0;
-        const totalSlides = carousels[0].querySelectorAll('.carousel-item').length;
-
-        function goToNextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            carousels.forEach(carousel => {
-                const bsCarousel = bootstrap.Carousel.getInstance(carousel);
-                if (bsCarousel) {
-                    bsCarousel.to(currentIndex);
+             /*carrosel js config*/
+            // Sincronizar todos os carrosseis de projetos
+            document.addEventListener('DOMContentLoaded', function () {
+                const carousels = document.querySelectorAll('.projeto-carousel');
+    
+                if (carousels.length === 0) {
+                    console.error("Nenhum carrossel encontrado.");
+                    return; // Saia se não houver carrosséis encontrados
                 }
-            });
-        }
-
-        setInterval(goToNextSlide, 4000);
-
-        carousels.forEach(carousel => {
-            carousel.addEventListener('slide.bs.carousel', function (e) {
-                currentIndex = e.to;
-                carousels.forEach(syncCarousel => {
-                    if (syncCarousel !== carousel) {
-                        const bsCarousel = bootstrap.Carousel.getInstance(syncCarousel);
+    
+                let currentIndex = 0; // Índice inicial do slide
+                const totalSlides = carousels[0].querySelectorAll('.carousel-item').length;
+    
+                // Função para ir ao próximo slide sincronizadamente
+                function goToNextSlide() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+    
+                    carousels.forEach(carousel => {
+                        const bsCarousel = bootstrap.Carousel.getInstance(carousel);
                         if (bsCarousel) {
                             bsCarousel.to(currentIndex);
                         }
-                    }
+                    });
+                }
+    
+                // Defina o intervalo para avançar os slides a cada 4 segundos
+                const syncInterval = setInterval(goToNextSlide, 4000);
+    
+                // Sincronizar manualmente ao clicar em um controle
+                carousels.forEach(carousel => {
+                    carousel.addEventListener('slide.bs.carousel', function (e) {
+                        currentIndex = e.to;
+                        carousels.forEach(syncCarousel => {
+                            if (syncCarousel !== carousel) {
+                                const bsCarousel = bootstrap.Carousel.getInstance(syncCarousel);
+                                if (bsCarousel) {
+                                    bsCarousel.to(currentIndex);
+                                }
+                            }
+                        });
+                    });
                 });
             });
-        });
-    }
 
     // Botão WhatsApp
     document.querySelector(".contact-form").addEventListener("submit", function(event) {
