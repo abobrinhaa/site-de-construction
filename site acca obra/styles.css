@@ -557,3 +557,9 @@ a:active {
         height: 300px;
     }
 }
+@media (max-width: 768px) {
+    h2.display-4 {
+        font-size: 24px; /* Ajuste o tamanho da fonte para telas menores */
+        margin: 8px; /* Ajuste as margens conforme necessário */
+    }
+}
