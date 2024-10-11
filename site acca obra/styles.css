@@ -21,7 +21,7 @@ body {
 .invisivel {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    pointer-events: none; /* Evita que o usuário interaja com a navbar enquanto está invisível */
+    pointer-events: none;
 }
 
 .hero {
@@ -36,6 +36,7 @@ body {
     color: #fcb72b;
     font-weight: 700;
 }
+
 .hero::before {
     content: "";
     position: absolute;
@@ -43,31 +44,31 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Película preta com opacidade */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 0;
-    border-radius: 0; /* Remova ou ajuste conforme o design desejado */
-}   
+}
+
 .hero-text {
     position: relative;
-    max-width: 950px; /* Limite de largura */
-    background: rgba(0, 0, 0, 0.7); /* Fundo escuro para destaque */
+    max-width: 950px;
+    background: rgba(0, 0, 0, 0.7);
     padding: 2rem;
     border-radius: 10px;
     color: #fff;
-    text-align: left; /* Alinha à esquerda */
+    text-align: left;
     z-index: 1;
 }
-/* Ajuste para Navbar no Topo */
+
 .hero-header {
-    position: fixed; /* Posiciona no topo */
+    position: fixed;
     top: 0;
     width: 160vh;
-    padding: 1rem -rem; /* Ajuste para padding */
-    z-index: 1000; /* Coloca acima do hero */
+    padding: 1rem;
+    z-index: 1000;
 }
+
 .navbar {
     display: flex;
-  
 }
 
 .navbar a {
@@ -92,25 +93,21 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 }
+
 .nav-link:hover {
     color: #fcb72b;
-    text-decoration: none;
     transition: color 0.3s ease;
 }
-/* Para destacar o link clicado temporariamente */
+
 .nav-link.active {
     color: #fcb72b !important;
 }
 
-/* Estilo do link ao passar o mouse */
-.nav-link:hover {
-    color: #d89d26;
-}
-
 .nav {
     display: flex;
-    gap: 1.5rem; /* Espaçamento entre links */
+    gap: 1.5rem;
 }
+
 .hero h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -124,30 +121,7 @@ body {
     margin-bottom: 2rem;
     color: #fff;
 }
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero-header {
-        flex-direction: column; /* Mudar para coluna em telas pequenas */
-        padding: 1rem;
-    }
 
-    .navbar-nav {
-        flex-direction: column; /* Menu em coluna para mobile */
-        gap: 1rem;
-    }
-
-    .hero-text {
-        width: 90%; /* Ajustar largura do texto */
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .navbar {
-        padding: 0; /* Remover padding extra no menu */
-    }
-}
 .cta-button {
     background: #fcb72b;
     color: #333;
@@ -197,24 +171,6 @@ body {
 .sobre-nos-card h3,
 .sobre-nos-card p {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.sobre-nos-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    z-index: 0;
-}
-
-.sobre-nos-card h3,
-.sobre-nos-card p {
-    position: relative;
-    z-index: 1;
 }
 
 /* Seção Nossos Serviços */
@@ -279,64 +235,54 @@ body {
     z-index: 0;
 }
 
-.service-card:hover::before {
-    background: rgba(0, 0, 0, 0.8);
-}
-
 .card-servico {
-    width: 25%; /* Aumentar a largura da coluna para dar mais espaço ao texto */
-    min-width: 300px; /* Garante uma largura mínima para evitar colapsar o conteúdo em telas menores */
+    width: 25%;
+    min-width: 300px;
     padding: 15px;
-    margin: 0 auto; /* Centralizar a coluna */
-    text-align: center; /* Centralizar o texto */
-    word-break: keep-all; /* Evita que palavras sejam quebradas no meio */
-    white-space: normal; /* Permite que o texto quebre de forma adequada */
+    margin: 0 auto;
+    text-align: center;
+    word-break: keep-all;
+    white-space: normal;
 }
 
 .card-servico h3 {
-    font-size: 1.5rem; /* Tamanho do título, pode ser ajustado se necessário */
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .card-servico p {
-    font-size: 1rem; /* Ajustar o tamanho do parágrafo para melhorar a leitura */
-    line-height: 1.6; /* Maior espaçamento para melhorar a legibilidade */
+    font-size: 1rem;
+    line-height: 1.6;
 }
-
 
 /* Estilo dos Cards */
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
-    border-radius: 15px; /* Bordas arredondadas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
 }
 
-/* Hover para os Cards */
 .card:hover {
-    transform: translateY(-10px); /* Leve deslocamento para cima no hover */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Sombra ao hover */
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Ícones */
 .card-body i {
-    color: #fcb72b; /* Cor de destaque dos ícones */
+    color: #fcb72b;
     margin-bottom: 1rem;
 }
 
-/* Título dos Cards */
 .card-title {
     font-size: 1.5rem;
     font-weight: 700;
     color: #333;
 }
 
-/* Texto dos Cards */
 .card-text {
     font-size: 1rem;
     line-height: 1.8;
     color: #555;
 }
 
-/* Botão na Seção Nossos Serviços */
 .btn {
     background: #fcb72b;
     color: #333;
@@ -346,15 +292,13 @@ body {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover no Botão */
 .btn:hover {
     background: #d89d26;
-    transform: scale(1.05); /* Leve aumento no hover */
+    transform: scale(1.05);
 }
 
-
 .projetos {
-    background: linear-gradient(135deg, #f8f8f8 0%, #e0e0e0 100%); /* Fundo com leve gradiente */
+    background: linear-gradient(135deg, #f8f8f8 0%, #e0e0e0 100%);
     padding: 4rem 0;
 }
 
@@ -369,70 +313,46 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efeito de elevação no hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
     padding: 1.5rem;
 }
 
-.card-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #555;
-}
-
 .img-fluid {
-    border-radius: 15px 15px 0 0; /* Bordas arredondadas nas imagens */
+    border-radius: 15px 15px 0 0;
 }
-
-/* Responsividade para dispositivos menores */
-@media (max-width: 768px) {
-    .projetos h2 {
-        font-size: 2.5rem;
-    }
-
-    .card-text {
-        font-size: 1rem;
-    }
-}
-
 
 #missao-visao-valores {
     display: flex;
     flex-wrap: nowrap;
     padding: 0;
     margin: 0;
-    border: none; /* Remove a borda */
+    border: none;
 }
 
 #missao-visao-valores .card {
-    flex: 1; /* Divide igualmente entre as colunas */
-    margin: 0; /* Remove as margens */
-    border: none; /* Remove bordas adicionais */
+    flex: 1;
+    margin: 0;
+    border: none;
     padding: 2rem;
-    height: 100%; /* Garante que todas as colunas tenham a mesma altura */
-    background: #ffffff; /* Fundo branco */
-    color: #333; /* Texto em preto */
+    height: 100%;
+    background: #ffffff;
+    color: #333;
 }
 
-/* Título dos Cards */
 #missao-visao-valores .card-title {
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-/* Texto dos Cards */
 #missao-visao-valores .card-text {
     font-size: 1rem;
     line-height: 1.6;
 }
 
-
-
-
-/* Seção Contato */
 .contato {
     padding: 4rem 2rem;
     text-align: center;
@@ -469,7 +389,6 @@ body {
     background: #555;
 }
 
-/* Footer */
 .footer {
     background: #333;
     color: #fff;
@@ -487,173 +406,18 @@ body {
     color: #f5a623;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .hero {
-        padding: 2rem;
-        text-align: center;
-        min-height: auto;
-    }
-
-    .hero-header,
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .hero-text, .service-card, .sobre-nos-card, .project-item {
-        width: 100%;
-    }
-
-    .service-cards, .sobre-nos-cards, .project-gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-text {
-        width: 90%;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p,
-    .cta-button {
-        font-size: 1rem;
-    }
+.hero-text,
+.service-card,
+.sobre-nos-card,
+.project-item {
+    width: 100%;
 }
 
-
-/* Estilo das Seções */
-section {
-    padding: 60px 0;
-}
-
-.nossos-servicos {
-    background-color: #e8e8e8;
-}
-
-.projetos {
-    background-color: #f4f4f4;
-}
-
-.sobre-nos {
-    background-color: #fafafa;
-}
-
-.contato {
-    background-color: #e0e0e0;
-}
-
-
-/* Títulos e Textos */
-h2 {
-    font-weight: 700;
-    color: #333;
-}
-
-p, .card-text {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Estilo dos Cards */
-.card {
-    border: none;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Botões */
-.btn {
-    background: #fcb72b;
-    color: #333;
-    border-radius: 50px;
-    padding: 12px 30px;
-    font-size: 1rem;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.btn:hover {
-    
-    color: #fff;
-    transform: scale(1.05);
-}
-
-
-
-/* Estilos para o botão flutuante do WhatsApp */
-/* Estilos para o botão flutuante do WhatsApp */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px; /* Ajuste para deixar o botão mais abaixo */
-    right: 20px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 999; /* Z-index menor que o botão de voltar ao topo */
-    display: flex;
+.service-cards,
+.sobre-nos-cards,
+.project-gallery {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.whatsapp-icon {
-    width: 60px; /* Ajuste o tamanho do ícone */
-    height: 60px;
-}
-
-/* Botão de voltar ao topo */
-.back-to-top {
-    position: fixed;
-    bottom: 90px; /* Ajustado para ficar logo acima do botão do WhatsApp */
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #333; /* Cor de fundo */
-    text-decoration: none;
-    color: white; /* Cor do ícone */
-    border-radius: 50%;
-    z-index: 1000; /* Z-index maior para sobrepor o botão do WhatsApp */
-    display: none; /* Inicialmente escondido */
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-
-    transition: transform 0.3s ease-in-out;
-}
-
-.back-to-top:hover {
-    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
-}
-
-.back-to-top i {
-    font-size: 1.5rem; /* Tamanho do ícone */
-}
-
-/* Links gerais */
-a {
-    text-decoration: none; /* Remove o sublinhado */
-    color: inherit; /* Faz com que o link herde a cor do elemento pai */
-}
-
-a:hover, a:focus, a:active {
-    text-decoration: none; /* Garante que o link não tenha sublinhado ao ser clicado ou ao passar o mouse */
-    color: #fcb72b; /* Cor do link ao passar o mouse */
 }
 
 .success-message {
@@ -680,17 +444,17 @@ a:hover, a:focus, a:active {
 }
 
 .card-img-top {
-    max-height: 300px; /* Reduzindo a altura máxima das imagens */
+    max-height: 300px;
     object-fit: cover;
 }
 
 .carousel-item {
-    height: 350px; /* Definir uma altura menor para os itens do carrossel */
+    height: 350px;
 }
 
 .carousel-item img {
     width: 100%;
-    height: 100%; /* Ajustar altura para ocupar todo o item */
+    height: 100%;
     object-fit: cover;
     border: 5px solid #e0e0e0;
     border-radius: 10px;
@@ -699,7 +463,7 @@ a:hover, a:focus, a:active {
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 40px; /* Reduzir o tamanho dos botões */
+    width: 40px;
     height: 40px;
     background-color: #002F52;
     border-radius: 50%;
@@ -716,40 +480,80 @@ a:hover, a:focus, a:active {
     transition: none !important;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: #002F52;
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    text-decoration: none;
+    color: white;
+    border-radius: 50%;
+    z-index: 1000;
     display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
-.swiper-button-prev img,
-.swiper-button-next img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    visibility: visible;
+.back-to-top:hover {
+    transform: scale(1.1);
 }
 
-/* Ajustando a largura das colunas dos projetos para mostrar múltiplos cards lado a lado */
+.back-to-top i {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #fcb72b;
+}
+
 #projetos .col-md-4 {
-    max-width: 33%; /* Garantir que os cards ocupem aproximadamente um terço da linha */
-    flex: 1 0 33%; /* Ajustar para que cada card ocupe um terço da linha */
-    margin-bottom: 1rem; /* Espaçamento entre os cards */
+    max-width: 33%;
+    flex: 1 0 33%;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
     #projetos .col-md-4 {
-        max-width: 100%; /* Em telas menores, os cards ocupam toda a largura */
+        max-width: 100%;
         flex: 1 0 100%;
     }
 
     .carousel-item {
-        height: 300px; /* Altura reduzida em dispositivos menores */
+        height: 300px;
     }
 }
-
-
