@@ -226,30 +226,20 @@
                             </section>
                             
 
-
-
-    <!-- Seção Contato -->
-    <section id="contato" class="contato py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Entre em Contato Conosco</h2>
-            <p class="text-center">Estamos prontos para atender suas necessidades de manutenção e construção. Entre em contato conosco para solicitar um orçamento ou para mais informações sobre nossos serviços.</p>
-            
-            <!-- Formulário que envia para o arquivo contato.php -->
-            <form class="contact-form w-50 mx-auto" action="contato.php" method="POST">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="nome" placeholder="Nome" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="E-mail" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" name="mensagem" placeholder="Sua mensagem" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark btn-block">Enviar Mensagem</button>
-            </form>
-        </div>
-    </section>
-
+  
+                            <form class="contact-form w-50 mx-auto" action="#" method="POST">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="mensagem" placeholder="Sua mensagem" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-dark btn-block">Enviar Mensagem</button>
+                            </form>
+                            
 <!-- Seção de Mapa e Footer -->
 <section id="mapa-e-footer" class="d-flex justify-content-center align-items-center py-5 bg-dark text-white">
     <div class="container text-center d-flex flex-column align-items-center">
@@ -281,9 +271,31 @@
     <!-- Bootstrap JS e dependências -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
     <script>
         /*efeito rolagen*/
         
+        document.addEventListener("DOMContentLoaded", function () {
+        // Selecionar os dois botões
+        const buttons = document.querySelectorAll(".btn");
+
+        // Adicionar evento de clique a cada botão
+        buttons.forEach(button => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault(); // Impede o comportamento padrão do link
+
+                // Obter o ID da seção alvo a partir do href do botão
+                const targetID = this.getAttribute("href");
+                const targetSection = document.querySelector(targetID);
+
+                // Realizar o scroll suave até a seção alvo
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70, // Ajuste para compensar a altura da navbar, se necessário
+                    behavior: "smooth" // Ativa o scroll suave
+                });
+            });
+        });
+    });
             document.addEventListener("DOMContentLoaded", function () {
                 // Selecionar todos os links que redirecionam para seções da página
                 const links = document.querySelectorAll(".nav-link");
@@ -451,7 +463,21 @@
                 });
             });
         
-        
+    
+            (function(){
+        emailjs.init("A3XA7os2qylu8muCJ");
+    })();
+
+    document.querySelector(".contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_2o3g29v', 'template_id', this)
+            .then(function() {
+                alert('Mensagem enviada com sucesso!');
+            }, function(error) {
+                alert('Erro ao enviar mensagem: ' + JSON.stringify(error));
+            });
+    });
         
         </script>
 
